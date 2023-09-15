@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/scroll_view"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/white"
+tools:context=".presentation.add_input_note.AddInputNoteFragment"
+    android:orientation="vertical">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/add_input_note_list_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+
+
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginBottom="24dp"
+            android:gravity="center"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:fontFamily="@font/kite_one"
+                android:gravity="center_horizontal"
+                android:text="Choose product to add "
+                android:textAlignment="center"
+                android:textSize="36sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_add_input_notes"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="24dp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="1"
+                tools:itemCount="10"
+                tools:listitem="@layout/note_item" />
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_add_own_add_input_notes"
+            style="@style/SaveButton"
+            android:layout_width="match_parent"
+            android:fontFamily="@font/kite_one"
+            android:layout_height="@dimen/long_buttons_height"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp"
+            android:contentDescription="Or create your own one"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            android:text="Or create your own one"
+            android:textSize="24sp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/add_input_note_info_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginBottom="24dp"
+            android:gravity="center"
+            >
+            <TextView
+                android:id="@+id/add_input_note_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:fontFamily="@font/kite_one"
+                android:gravity="center"
+                android:text="Choose product to add "
+                android:layout_marginVertical="10dp"
+                android:textAlignment="center"
+                android:textSize="36sp" />
+
+            <TextView
+                android:id="@+id/add_input_note_description_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:fontFamily="@font/kite_one"
+                android:gravity="center"
+                android:text="Choose product to add "
+                android:textAlignment="center"
+                android:textSize="36sp" />
+
+            <TextView
+                android:id="@+id/add_input_note_price_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:fontFamily="@font/kite_one"
+                android:gravity="center"
+                android:text="Choose product to add "
+                android:textAlignment="center"
+                android:textSize="36sp" />
+
+            <TextView
+                android:id="@+id/add_input_note_count_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:fontFamily="@font/kite_one"
+                android:gravity="center"
+                android:text="Choose product to add "
+                android:textAlignment="center"
+                android:textSize="36sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/add_input_note_count_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="40dp"
+                android:hint="Title"
+                android:textColorHint="@color/dark_grey"
+                app:boxCornerRadiusBottomEnd="56dp"
+                app:boxCornerRadiusBottomStart="56dp"
+                app:boxCornerRadiusTopEnd="56dp"
+                app:boxCornerRadiusTopStart="56dp"
+                app:boxStrokeColor="@color/grey"
+                app:endIconCheckable="true"
+                android:fontFamily="@font/kite_one"
+                app:endIconDrawable="@drawable/ic_delete_x"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
+                app:helperText="Add title"
+                app:helperTextEnabled="true"
+                app:helperTextTextColor="@color/dark_grey"
+                app:hintAnimationEnabled="true"
+                app:hintEnabled="true"
+                app:hintTextColor="@color/dark_grey">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_input_note_count"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="text"
+                    android:fontFamily="@font/kite_one"
+                    android:textColor="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_save_input_note"
+            style="@style/SaveButton"
+            android:layout_width="match_parent"
+            android:fontFamily="@font/kite_one"
+            android:layout_height="@dimen/long_buttons_height"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp"
+            android:contentDescription="Save"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            android:text="Save"
+            android:textSize="24sp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

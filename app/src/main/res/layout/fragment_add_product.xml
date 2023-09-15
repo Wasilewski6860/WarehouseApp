@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scroll_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".presentation.add_product.AddProductFragment">
+
+    <LinearLayout
+        android:id="@+id/add_product_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_product_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="40dp"
+            android:hint="Title"
+            android:textColorHint="@color/dark_grey"
+            app:boxCornerRadiusBottomEnd="56dp"
+            app:boxCornerRadiusBottomStart="56dp"
+            app:boxCornerRadiusTopEnd="56dp"
+            app:boxCornerRadiusTopStart="56dp"
+            app:boxStrokeColor="@color/grey"
+            app:endIconCheckable="true"
+            android:fontFamily="@font/kite_one"
+            app:endIconDrawable="@drawable/ic_delete_x"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:helperText="Add title"
+            app:helperTextEnabled="true"
+            app:helperTextTextColor="@color/dark_grey"
+            app:hintAnimationEnabled="true"
+            app:hintEnabled="true"
+            app:hintTextColor="@color/dark_grey">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_product_name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="text"
+                android:fontFamily="@font/kite_one"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_product_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="24dp"
+            android:hint="Description"
+            android:textColorHint="@color/dark_grey"
+            app:boxCornerRadiusBottomEnd="34dp"
+            app:boxCornerRadiusBottomStart="34dp"
+            app:boxCornerRadiusTopEnd="34dp"
+            app:boxCornerRadiusTopStart="34dp"
+            app:boxStrokeColor="@color/grey"
+            app:endIconCheckable="true"
+            app:endIconDrawable="@drawable/ic_delete_x"
+            android:fontFamily="@font/kite_one"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:helperText="Optional field"
+            app:helperTextEnabled="true"
+            app:helperTextTextColor="@color/dark_grey"
+            app:hintAnimationEnabled="true"
+            app:hintEnabled="true"
+            app:hintTextColor="@color/dark_grey">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_product_description"
+                android:layout_width="match_parent"
+                android:layout_height="154dp"
+                android:gravity="top"
+                android:fontFamily="@font/kite_one"
+                android:inputType="text"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_product_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="40dp"
+            android:hint="Price"
+            android:textColorHint="@color/dark_grey"
+            app:boxCornerRadiusBottomEnd="56dp"
+            app:boxCornerRadiusBottomStart="56dp"
+            app:boxCornerRadiusTopEnd="56dp"
+            app:boxCornerRadiusTopStart="56dp"
+            app:boxStrokeColor="@color/grey"
+            app:endIconCheckable="true"
+            android:fontFamily="@font/kite_one"
+            app:endIconDrawable="@drawable/ic_delete_x"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:helperText="Add price"
+            app:helperTextEnabled="true"
+            app:helperTextTextColor="@color/dark_grey"
+            app:hintAnimationEnabled="true"
+            app:hintEnabled="true"
+            app:hintTextColor="@color/dark_grey">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_product_price"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="text"
+                android:fontFamily="@font/kite_one"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/button_save"
+        style="@style/Widget.Material3.Button.TonalButton"
+
+        android:layout_width="match_parent"
+        android:fontFamily="@font/kite_one"
+        android:layout_height="@dimen/long_buttons_height"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/small_button_shape"
+        android:contentDescription="Add Picture"
+
+        app:layout_constraintBottom_toTopOf="@+id/button_cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+
+        android:gravity="center"
+        android:text="Save"
+        android:textSize="24sp" />
+    <Button
+        android:id="@+id/button_cancel"
+        style="@style/SaveButton"
+        android:layout_width="match_parent"
+        android:fontFamily="@font/kite_one"
+        android:layout_height="@dimen/long_buttons_height"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="Add Picture"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+
+        android:text="Cancel"
+        android:textSize="24sp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

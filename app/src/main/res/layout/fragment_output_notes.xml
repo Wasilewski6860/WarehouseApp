@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.newwarehouseapp.presentation.output_notes.OutputNotesFragment">
+
+
+
+
+    <LinearLayout
+        android:id="@+id/no_content_layout_output_notes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:contentDescription="No Content"
+            android:src="@drawable/no_content"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kite_one"
+            android:gravity="center"
+            android:text="Your notes"
+            android:layout_marginTop="20dp"
+            android:textSize="36dp"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kite_one"
+            android:gravity="center"
+            android:text="Add Your First Note Here"
+            android:layout_marginTop="32dp"
+            android:textSize="16sp"
+            android:layout_gravity="center"
+            android:lines="2"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginVertical="50dp"
+            android:contentDescription="Arrow Down"
+            android:src="@drawable/arrow_down_image" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/content_output_layout_output_notes"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginBottom="24dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="@font/kite_one"
+            android:gravity="center"
+            android:text="My Notes"
+            android:textAlignment="center"
+            android:textSize="36sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_output_notes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="1"
+            tools:itemCount="10"
+            tools:listitem="@layout/note_item" />
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/error_layout_output_notes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+
+            android:layout_gravity="center"
+            android:contentDescription="Error Image"
+            android:src="@drawable/error_image" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kite_one"
+            android:text="Something Went Wrong"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"
+            android:textSize="22sp" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/no_access_layout_output_notes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+
+            android:layout_gravity="center"
+            android:contentDescription="No Access Image"
+            android:src="@drawable/no_access" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kite_one"
+            android:text="You are not supplier"
+            android:textAlignment="center"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"
+            android:textSize="22sp" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_add_output_note_output_notes_fragment"
+        style="@style/Widget.Material3.Button.TonalButton"
+
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/long_buttons_height"
+        android:layout_margin="10dp"
+        android:layout_marginHorizontal="16dp"
+        android:background="@drawable/small_button_shape"
+        android:contentDescription="Create"
+
+        android:fontFamily="@font/bad_script"
+        android:gravity="center"
+        android:text="Create output note"
+        android:textSize="24sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

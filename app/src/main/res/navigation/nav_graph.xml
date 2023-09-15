@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/signInFragment">
+
+    <fragment
+        android:id="@+id/addInputNoteFragment"
+        android:name="com.example.newwarehouseapp.presentation.add_input_note.AddInputNoteFragment"
+        android:label="fragment_add_input_note"
+        tools:layout="@layout/fragment_add_input_note" >
+        <action
+            android:id="@+id/action_addInputNoteFragment_to_addProductFragment"
+            app:destination="@id/addProductFragment" />
+        <action
+            android:id="@+id/action_addInputNoteFragment_to_inputNotesFragment"
+            app:destination="@id/inputNotesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addOutputNoteFragment"
+        android:name="com.example.newwarehouseapp.presentation.add_output_note.AddOutputNoteFragment"
+        android:label="fragment_add_output_note"
+        tools:layout="@layout/fragment_add_output_note" >
+        <action
+            android:id="@+id/action_addOutputNoteFragment_to_addProductFragment"
+            app:destination="@id/addProductFragment" />
+        <action
+            android:id="@+id/action_addOutputNoteFragment_to_outputNotesFragment"
+            app:destination="@id/outputNotesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addProductFragment"
+        android:name="com.example.newwarehouseapp.presentation.add_product.AddProductFragment"
+        android:label="fragment_add_product"
+        tools:layout="@layout/fragment_add_product" >
+        <action
+            android:id="@+id/action_addProductFragment_to_addInputNoteFragment"
+            app:destination="@id/addInputNoteFragment" />
+        <argument
+            android:name="id"
+            android:defaultValue="-1"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_addProductFragment_to_addOutputNoteFragment"
+            app:destination="@id/addOutputNoteFragment" />
+        <action
+            android:id="@+id/action_addProductFragment_to_warehouseFragment"
+            app:destination="@id/warehouseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteInfoFragment"
+        android:name="com.example.newwarehouseapp.presentation.note_info.NoteInfoFragment"
+        android:label="fragment_note_info"
+        tools:layout="@layout/fragment_note_info" >
+        <action
+            android:id="@+id/action_noteInfoFragment_to_addInputNoteFragment"
+            app:destination="@id/addInputNoteFragment" />
+        <action
+            android:id="@+id/action_noteInfoFragment_to_addOutputNoteFragment"
+            app:destination="@id/addOutputNoteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/warehouseFragment"
+        android:name="com.example.newwarehouseapp.presentation.warehouse.WarehouseFragment"
+        android:label="fragment_warehouse"
+        tools:layout="@layout/fragment_warehouse" >
+        <action
+            android:id="@+id/action_warehouseFragment_to_addProductFragment"
+            app:destination="@id/addProductFragment" />
+        <action
+            android:id="@+id/action_warehouseFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/inputNotesFragment"
+        android:name="com.example.newwarehouseapp.presentation.input_notes.InputNotesFragment"
+        android:label="fragment_input_notes"
+        tools:layout="@layout/fragment_input_notes" >
+        <action
+            android:id="@+id/action_inputNotesFragment_to_addInputNoteFragment"
+            app:destination="@id/addInputNoteFragment" />
+        <action
+            android:id="@+id/action_inputNotesFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/outputNotesFragment"
+        android:name="com.example.newwarehouseapp.presentation.output_notes.OutputNotesFragment"
+        android:label="fragment_output_notes"
+        tools:layout="@layout/fragment_output_notes" >
+        <action
+            android:id="@+id/action_outputNotesFragment_to_addOutputNoteFragment"
+            app:destination="@id/addOutputNoteFragment" />
+        <action
+            android:id="@+id/action_outputNotesFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.newwarehouseapp.presentation.sign_in.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_signInFragment_to_inputNotesFragment"
+            app:destination="@id/inputNotesFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_outputNotesFragment"
+            app:destination="@id/outputNotesFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.newwarehouseapp.presentation.sign_up.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
+</navigation>

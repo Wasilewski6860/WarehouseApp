@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/inputNotesFragment"
+        android:title="Input Notes"
+        android:icon="@drawable/ic_input_note" />
+
+    <item android:id="@+id/outputNotesFragment"
+        android:title="Output Notes"
+        android:icon="@drawable/ic_output_note" />
+
+    <item android:id="@+id/warehouseFragment"
+        android:title="Settings"
+        android:icon="@drawable/ic_warehouse" />
+
+</menu>
