@@ -5,7 +5,7 @@
     android:id="@+id/scroll_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+
     tools:context=".presentation.add_output_note.AddOutputNoteFragment"
     android:orientation="vertical">
 
@@ -39,6 +39,26 @@
                 android:text="Choose product to add "
                 android:textAlignment="center"
                 android:textSize="36sp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/search_card_add_output_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="12dp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintHorizontal_bias="0.5"
+                >
+
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/search_view_add_output_note"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:iconifiedByDefault="false"
+                    app:queryBackground="@android:color/transparent"
+                    app:queryHint="Search here ..." />
+
+            </androidx.cardview.widget.CardView>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view_add_output_notes"

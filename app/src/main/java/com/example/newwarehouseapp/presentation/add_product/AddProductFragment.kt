@@ -121,10 +121,12 @@ class AddProductFragment : Fragment() {
     private fun saveProduct(cocktailId: Int) {
 
         if (!isNameValid()) showSnackbar("Name invalid ")
-        if (!isDescriptionValid()) showSnackbar("Description invalid ")
+//        if (!isDescriptionValid()) showSnackbar("Description invalid ")
         if (!isPriceValid()) showSnackbar("Price invalid ")
 
-        if (isNameValid() && isDescriptionValid() && isPriceValid()) {
+        if (isNameValid()
+//            && isDescriptionValid()
+            && isPriceValid()) {
 
             if (productId>0){
                 viewModel.editProduct(

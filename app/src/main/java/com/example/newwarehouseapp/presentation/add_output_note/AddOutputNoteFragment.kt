@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.widget.SearchView
 import androidx.navigation.fragment.findNavController
 import com.example.newwarehouseapp.R
 import com.example.newwarehouseapp.databinding.FragmentAddOutputNoteBinding
@@ -66,6 +67,20 @@ class AddOutputNoteFragment : Fragment() {
             }
         }
 
+        binding.searchViewAddOutputNote.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(text: String?): Boolean {
+                return true
+            }
+
+            override fun onQueryTextChange(text: String?): Boolean {
+                if (text != null) {
+                    viewModel.fetchByName(text)
+                }
+                else viewModel.fetchProducts()
+                return true
+            }
+        })
+
     }
 
     private fun initRcView() {
@@ -90,10 +105,10 @@ class AddOutputNoteFragment : Fragment() {
 
     private fun bindViews(productWithProductOnWarehouse: ProductWithProductOnWarehouse) {
         binding.apply {
-            addOutputNoteNameTv.setText(productWithProductOnWarehouse.name, TextView.BufferType.SPANNABLE)
-            addOutputNoteDescriptionTv.setText(productWithProductOnWarehouse.description, TextView.BufferType.SPANNABLE)
-            addOutputNotePriceTv.setText(productWithProductOnWarehouse.price.toString(), TextView.BufferType.SPANNABLE)
-            addOutputNoteCountTv.setText(productWithProductOnWarehouse.productOnWarehouse.count.toString(), TextView.BufferType.SPANNABLE)
+            addOutputNoteNameTv.setText("Name: "+productWithProductOnWarehouse.name, TextView.BufferType.SPANNABLE)
+            addOutputNoteDescriptionTv.setText("Description: "+productWithProductOnWarehouse.description, TextView.BufferType.SPANNABLE)
+            addOutputNotePriceTv.setText("Price: "+productWithProductOnWarehouse.price.toString(), TextView.BufferType.SPANNABLE)
+            addOutputNoteCountTv.setText("Count: "+productWithProductOnWarehouse.productOnWarehouse.count.toString(), TextView.BufferType.SPANNABLE)
         }
     }
     fun isCountValid() : Boolean{

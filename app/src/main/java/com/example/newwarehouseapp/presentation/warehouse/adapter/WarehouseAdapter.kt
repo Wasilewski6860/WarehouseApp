@@ -37,10 +37,10 @@ class WarehouseAdapter(
             actionListener.onClickItem(item)
         }
         with(holder.binding) {
-            productNameProductItem.text = item.name
-            productDescriptionProductItem.text = item.description
-            productCountProductItem.text = item.productOnWarehouse.count.toString()
-            productPriceProductItem.text = item.price.toString()
+            productNameProductItem.text = "Name: "+item.name
+            productDescriptionProductItem.text = "Description: "+item.description
+            productCountProductItem.text = "Count: "+item.productOnWarehouse.count.toString()
+            productPriceProductItem.text = "Price: "+item.price.toString()
         }
     }
 

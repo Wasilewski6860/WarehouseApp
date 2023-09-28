@@ -61,6 +61,10 @@ interface WarehouseRepository {
     suspend fun editProductWithProductOnWarehouse(productWithProductOnWarehouse: ProductWithProductOnWarehouse)
     suspend fun getProductWithProductOnWarehouseById(id : Int) : ProductWithProductOnWarehouse
     suspend fun getProductsWithProductOnWarehouse() : List<ProductWithProductOnWarehouse>
+    suspend fun getProductsWithProductOnWarehouseByName(name : String) : List<ProductWithProductOnWarehouse>
+
+    suspend fun getProductsWithProductOnWarehouseSortedByName() : List<ProductWithProductOnWarehouse>
+    suspend fun getProductsWithProductOnWarehouseSortedByPrice() : List<ProductWithProductOnWarehouse>
 
     suspend fun getReceiverWithOutputNotesById(id : Int) : ReceiverWithOutputNotes
     suspend fun getReceiverWithOutputNotesByName(name : String) : ReceiverWithOutputNotes

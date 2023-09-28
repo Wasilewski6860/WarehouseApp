@@ -26,6 +26,9 @@ import com.example.newwarehouseapp.domain.use_cases.product_on_warehouse.AddProd
 import com.example.newwarehouseapp.domain.use_cases.product_with_product_on_warehouse.AddProductWithProductOnWarehouseUseCase
 import com.example.newwarehouseapp.domain.use_cases.product_with_product_on_warehouse.EditProductWithProductOnWarehouseUseCase
 import com.example.newwarehouseapp.domain.use_cases.product_with_product_on_warehouse.GetProductWithProductOnWarehouseByIdUseCase
+import com.example.newwarehouseapp.domain.use_cases.product_with_product_on_warehouse.GetProductsWithProductOnWarehouseByNameUseCase
+import com.example.newwarehouseapp.domain.use_cases.product_with_product_on_warehouse.GetProductsWithProductOnWarehouseSortedByNameUseCase
+import com.example.newwarehouseapp.domain.use_cases.product_with_product_on_warehouse.GetProductsWithProductOnWarehouseSortedByPriceUseCase
 import com.example.newwarehouseapp.domain.use_cases.product_with_product_on_warehouse.GetProductsWithProductOnWarehouseUseCase
 import com.example.newwarehouseapp.domain.use_cases.receiver.AddReceiverUseCase
 import com.example.newwarehouseapp.domain.use_cases.receiver.DeleteReceiverUseCase
@@ -102,6 +105,9 @@ val domainModule = module {
     factory<AddProductOnWarehouseUseCase>{AddProductOnWarehouseUseCase(warehouseRepository = get())}
     factory<GetReceiversByNameAndPasswordUseCase>{GetReceiversByNameAndPasswordUseCase(warehouseRepository = get())}
     factory<GetSuppliersByNameAndPasswordUseCase>{GetSuppliersByNameAndPasswordUseCase(warehouseRepository = get())}
+    factory<GetProductsWithProductOnWarehouseByNameUseCase>{GetProductsWithProductOnWarehouseByNameUseCase(warehouseRepository = get())}
+    factory<GetProductsWithProductOnWarehouseSortedByNameUseCase>{GetProductsWithProductOnWarehouseSortedByNameUseCase(warehouseRepository = get())}
+    factory<GetProductsWithProductOnWarehouseSortedByPriceUseCase>{GetProductsWithProductOnWarehouseSortedByPriceUseCase(warehouseRepository = get())}
 //    factory<AddCatUseCase> { AddCatUseCase(catsRepository = get()) }
 //    factory<DeleteCatUseCase> { DeleteCatUseCase(catsRepository = get()) }
 //    factory<EditCatUseCase> { EditCatUseCase(catsRepository = get()) }

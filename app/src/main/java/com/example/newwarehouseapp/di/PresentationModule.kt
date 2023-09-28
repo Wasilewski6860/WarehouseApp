@@ -20,14 +20,16 @@ val presentationModule = module {
         AddInputNoteViewModel(
             addInputNoteUseCase = get(),
             getProductsWithProductOnWarehouseUseCase = get(),
-            editProductWithProductOnWarehouseUseCase = get()
+            editProductWithProductOnWarehouseUseCase = get(),
+            getProductsWithProductOnWarehouseByNameUseCase = get()
         )
     }
     viewModel<AddOutputNoteViewModel>{
         AddOutputNoteViewModel(
             addOutputNoteUseCase = get(),
             getProductsWithProductOnWarehouseUseCase = get(),
-            editProductWithProductOnWarehouseUseCase = get()
+            editProductWithProductOnWarehouseUseCase = get(),
+            getProductsWithProductOnWarehouseByNameUseCase = get()
         )
     }
     viewModel<AddProductViewModel> {
@@ -75,7 +77,9 @@ val presentationModule = module {
     viewModel<WarehouseViewModel>{
         WarehouseViewModel(
             getProductsWithProductOnWarehouseUseCase = get(),
-            getProductsUseCase = get()
+            getProductsUseCase = get(),
+            getAllProductsSortedByName = get(),
+            getAllProductsSortedByPrice = get()
         )
     }
 

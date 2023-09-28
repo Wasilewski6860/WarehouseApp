@@ -24,9 +24,9 @@ class InputNotesAdapter() : ListAdapter<InputNoteWithProduct, InputNotesAdapter.
         val item = getItem(position)
 
         with(holder.binding) {
-            productNameNoteItem.text = item.product.name.toString()
-            productDescriptionNoteItem.text = item.product.description.toString()
-            productCountNoteItem.text = item.count.toString()
+            productNameNoteItem.text = "Name: "+item.product.name.toString()
+            productDescriptionNoteItem.text = "Description: "+item.product.description.toString()
+            productCountNoteItem.text = "Count: "+item.count.toString()
         }
     }
 

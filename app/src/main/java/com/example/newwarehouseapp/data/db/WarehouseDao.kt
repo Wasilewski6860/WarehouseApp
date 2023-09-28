@@ -138,6 +138,14 @@ interface WarehouseDao {
     suspend fun getProductWithProductOnWarehouseById(id : Int) : ProductWithProductOnWarehouseDto
     @Query("SELECT products.id, products.name,products.description,products.price FROM products")
     suspend fun getProductsWithProductOnWarehouse() : List<ProductWithProductOnWarehouseDto>
+    @Query("SELECT products.id, products.name,products.description,products.price FROM products  WHERE name LIKE '%' || :name || '%'")
+    suspend fun getProductsWithProductOnWarehouseByName(name : String) : List<ProductWithProductOnWarehouseDto>
+
+    @Query("SELECT products.id, products.name,products.description,products.price FROM products  ORDER BY name DESC")
+    suspend fun getProductsWithProductOnWarehouseSortedByName() : List<ProductWithProductOnWarehouseDto>
+    @Query("SELECT products.id, products.name,products.description,products.price FROM products  ORDER BY price DESC")
+    suspend fun getProductsWithProductOnWarehouseSortedByPrice() : List<ProductWithProductOnWarehouseDto>
+
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertProductOnWarehouse(productOnWarehouseDto: ProductOnWarehouseDto)

@@ -185,7 +185,7 @@
 
         android:fontFamily="@font/bad_script"
         android:gravity="center"
-        android:text="Create output note"
+        android:text="Create input note"
         android:textSize="24sp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"

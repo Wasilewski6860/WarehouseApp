@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.TextView
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.example.newwarehouseapp.R
@@ -178,6 +179,9 @@ class SignInFragment : Fragment() {
             .putBoolean("IS_RECEIVER", isReceiver)
             .putBoolean("KEY_IS_FIRST",false)
             .apply()
+
+        val toolbarText = name+", "+ if (isReceiver) "Receiver" else "Supplier"
+        requireActivity().findViewById<TextView>(R.id.tvToolbarTitle).text = toolbarText
         return true
     }
 }

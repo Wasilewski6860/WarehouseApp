@@ -503,6 +503,27 @@ class WarehouseRepositoryImpl(private val warehouseStorage: WarehouseStorage) : 
         }
     }
 
+    override suspend fun getProductsWithProductOnWarehouseByName(name: String): List<ProductWithProductOnWarehouse> {
+        val resultFromData = warehouseStorage.getProductsWithProductOnWarehouseByName(name)
+        return resultFromData.map { productWithProductOnWarehouseDto ->
+            mapToDomain(productWithProductOnWarehouseDto)
+        }
+    }
+
+    override suspend fun getProductsWithProductOnWarehouseSortedByName(): List<ProductWithProductOnWarehouse> {
+        val resultFromData = warehouseStorage.getProductsWithProductOnWarehouseSortedByName()
+        return resultFromData.map { productWithProductOnWarehouseDto ->
+            mapToDomain(productWithProductOnWarehouseDto)
+        }
+    }
+
+    override suspend fun getProductsWithProductOnWarehouseSortedByPrice(): List<ProductWithProductOnWarehouse> {
+        val resultFromData = warehouseStorage.getProductsWithProductOnWarehouseSortedByPrice()
+        return resultFromData.map { productWithProductOnWarehouseDto ->
+            mapToDomain(productWithProductOnWarehouseDto)
+        }
+    }
+
 
     override suspend fun getReceiverWithOutputNotesById(id: Int): ReceiverWithOutputNotes {
         val resultFromData = warehouseStorage.getReceiverWithOutputNotesById(id)

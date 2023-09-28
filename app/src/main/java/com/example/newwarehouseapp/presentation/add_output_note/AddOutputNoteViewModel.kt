@@ -12,6 +12,7 @@ import com.example.newwarehouseapp.domain.models.ProductWithProductOnWarehouse
 import com.example.newwarehouseapp.domain.use_cases.output_note.AddOutputNoteUseCase
 import com.example.newwarehouseapp.domain.use_cases.product.AddProductUseCase
 import com.example.newwarehouseapp.domain.use_cases.product_with_product_on_warehouse.EditProductWithProductOnWarehouseUseCase
+import com.example.newwarehouseapp.domain.use_cases.product_with_product_on_warehouse.GetProductsWithProductOnWarehouseByNameUseCase
 import com.example.newwarehouseapp.domain.use_cases.product_with_product_on_warehouse.GetProductsWithProductOnWarehouseUseCase
 import com.example.newwarehouseapp.presentation.screen_state.ScreenState
 import kotlinx.coroutines.launch
@@ -19,7 +20,8 @@ import kotlinx.coroutines.launch
 class AddOutputNoteViewModel(
     private val addOutputNoteUseCase: AddOutputNoteUseCase,
     private val getProductsWithProductOnWarehouseUseCase: GetProductsWithProductOnWarehouseUseCase,
-    private val editProductWithProductOnWarehouseUseCase : EditProductWithProductOnWarehouseUseCase
+    private val editProductWithProductOnWarehouseUseCase : EditProductWithProductOnWarehouseUseCase,
+    private val getProductsWithProductOnWarehouseByNameUseCase: GetProductsWithProductOnWarehouseByNameUseCase
 ) : ViewModel() {
 
     var product: ProductWithProductOnWarehouse = ProductWithProductOnWarehouse(
@@ -43,6 +45,26 @@ class AddOutputNoteViewModel(
                 _products.value = getProductsWithProductOnWarehouseUseCase.execute()
                 _screenState.value =
                     if (productsList.value?.isEmpty() == true) ScreenState.Empty else ScreenState.Content
+
+            } catch (e: Exception) {
+                _screenState.value = ScreenState.Error
+            }
+        }
+    }
+
+    fun fetchByName(title : String){
+        _screenState.value = ScreenState.Loading
+        viewModelScope.launch {
+
+            try {
+                if (title.isBlank()){
+                    _products.value = getProductsWithProductOnWarehouseUseCase.execute()
+                }
+                else _products.value = getProductsWithProductOnWarehouseByNameUseCase.execute(title)
+
+                _screenState.value =
+                    if (productsList.value?.isEmpty() == true) ScreenState.Empty else ScreenState.Content
+
 
             } catch (e: Exception) {
                 _screenState.value = ScreenState.Error

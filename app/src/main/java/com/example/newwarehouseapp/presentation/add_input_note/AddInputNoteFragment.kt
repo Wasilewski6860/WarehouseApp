@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.widget.SearchView
 import androidx.navigation.fragment.findNavController
 import com.example.newwarehouseapp.R
 import com.example.newwarehouseapp.databinding.FragmentAddInputNoteBinding
@@ -52,10 +53,6 @@ class AddInputNoteFragment : Fragment() {
             productsAdapter.submitList(productsList)
         }
 
-        viewModel.productsList.observe(viewLifecycleOwner) { productsList ->
-            productsAdapter.submitList(productsList)
-        }
-
         binding.buttonSaveInputNote.setOnClickListener {
             var success = saveNote()
             if(success) {
@@ -66,6 +63,20 @@ class AddInputNoteFragment : Fragment() {
                 Snackbar.make(requireView(), "Something went wrong", Snackbar.LENGTH_SHORT).show()
             }
         }
+
+        binding.searchViewAddInputNote.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(text: String?): Boolean {
+                return true
+            }
+
+            override fun onQueryTextChange(text: String?): Boolean {
+                if (text != null) {
+                    viewModel.fetchByName(text)
+                }
+                else viewModel.fetchProducts()
+                return true
+            }
+        })
 
     }
 
@@ -91,10 +102,10 @@ class AddInputNoteFragment : Fragment() {
 
     private fun bindViews(productWithProductOnWarehouse: ProductWithProductOnWarehouse) {
         binding.apply {
-            addInputNoteNameTv.setText(productWithProductOnWarehouse.name, TextView.BufferType.SPANNABLE)
-            addInputNoteDescriptionTv.setText(productWithProductOnWarehouse.description, TextView.BufferType.SPANNABLE)
-            addInputNotePriceTv.setText(productWithProductOnWarehouse.price.toString(), TextView.BufferType.SPANNABLE)
-            addInputNoteCountTv.setText(productWithProductOnWarehouse.productOnWarehouse.count.toString(), TextView.BufferType.SPANNABLE)
+            addInputNoteNameTv.setText("Name: "+productWithProductOnWarehouse.name, TextView.BufferType.SPANNABLE)
+            addInputNoteDescriptionTv.setText("Description: "+productWithProductOnWarehouse.description, TextView.BufferType.SPANNABLE)
+            addInputNotePriceTv.setText("Price: "+productWithProductOnWarehouse.price.toString(), TextView.BufferType.SPANNABLE)
+            addInputNoteCountTv.setText("Count: "+productWithProductOnWarehouse.productOnWarehouse.count.toString(), TextView.BufferType.SPANNABLE)
         }
     }
     fun isCountValid() : Boolean{

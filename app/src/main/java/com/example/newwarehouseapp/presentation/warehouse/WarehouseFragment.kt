@@ -8,11 +8,13 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.example.newwarehouseapp.R
 import com.example.newwarehouseapp.databinding.FragmentOutputNotesBinding
 import com.example.newwarehouseapp.databinding.FragmentWarehouseBinding
+import com.example.newwarehouseapp.domain.constants.SortType
 import com.example.newwarehouseapp.domain.models.ProductWithProductOnWarehouse
 import com.example.newwarehouseapp.presentation.add_input_note.AddInputNoteFragmentDirections
 import com.example.newwarehouseapp.presentation.output_notes.OutputNotesFragmentDirections
@@ -78,6 +80,25 @@ class WarehouseFragment : Fragment() {
             findNavController().navigate(action)
         }
 
+        when(viewModel.sortType) {
+            SortType.NAME -> binding.spFilter.setSelection(0)
+            SortType.PRICE -> binding.spFilter.setSelection(1)
+            else -> {
+                binding.spFilter.setSelection(0)
+            }
+        }
+
+        binding.spFilter.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(p0: AdapterView<*>?) {}
+
+            override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, pos: Int, id: Long) {
+                when(pos) {
+                    0 -> viewModel.sortRuns(SortType.NAME)
+                    1 -> viewModel.sortRuns(SortType.PRICE)
+                }
+            }
+        }
+
     }
 
     private fun initRcView() {
@@ -100,6 +121,7 @@ class WarehouseFragment : Fragment() {
             noContentLayoutWarehouse.visibility = View.GONE
             contentInputLayoutWarehouse.visibility = View.VISIBLE
             errorLayoutWarehouse.visibility = View.GONE
+            loadingLayoutWarehouse.visibility = View.GONE
         }
     }
 
@@ -108,6 +130,7 @@ class WarehouseFragment : Fragment() {
             noContentLayoutWarehouse.visibility = View.GONE
             contentInputLayoutWarehouse.visibility = View.GONE
             errorLayoutWarehouse.visibility = View.GONE
+            loadingLayoutWarehouse.visibility = View.VISIBLE
         }
     }
 
@@ -116,6 +139,7 @@ class WarehouseFragment : Fragment() {
             noContentLayoutWarehouse.visibility = View.VISIBLE
             contentInputLayoutWarehouse.visibility = View.GONE
             errorLayoutWarehouse.visibility = View.GONE
+            loadingLayoutWarehouse.visibility = View.GONE
         }
     }
 
@@ -124,6 +148,7 @@ class WarehouseFragment : Fragment() {
             noContentLayoutWarehouse.visibility = View.GONE
             contentInputLayoutWarehouse.visibility = View.GONE
             errorLayoutWarehouse.visibility = View.VISIBLE
+            loadingLayoutWarehouse.visibility = View.GONE
         }
     }
 

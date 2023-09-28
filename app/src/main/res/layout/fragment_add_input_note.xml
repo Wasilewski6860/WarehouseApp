@@ -40,6 +40,26 @@ tools:context=".presentation.add_input_note.AddInputNoteFragment"
                 android:textAlignment="center"
                 android:textSize="36sp" />
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/search_card_add_input_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="12dp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintHorizontal_bias="0.5"
+                >
+
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/search_view_add_input_note"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:iconifiedByDefault="false"
+                    app:queryBackground="@android:color/transparent"
+                    app:queryHint="Search here ..." />
+
+            </androidx.cardview.widget.CardView>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view_add_input_notes"
                 android:layout_width="match_parent"

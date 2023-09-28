@@ -74,6 +74,9 @@ interface WarehouseStorage {
 
     suspend fun getProductWithProductOnWarehouseById(id : Int) : ProductWithProductOnWarehouseDto
     suspend fun getProductsWithProductOnWarehouse() : List<ProductWithProductOnWarehouseDto>
+    suspend fun getProductsWithProductOnWarehouseByName(name : String) : List<ProductWithProductOnWarehouseDto>
+    suspend fun getProductsWithProductOnWarehouseSortedByName() : List<ProductWithProductOnWarehouseDto>
+    suspend fun getProductsWithProductOnWarehouseSortedByPrice() : List<ProductWithProductOnWarehouseDto>
 
     suspend fun insertProductOnWarehouse(productOnWarehouseDto: ProductOnWarehouseDto)
     suspend fun editProductOnWarehouse(productOnWarehouseDto: ProductOnWarehouseDto)

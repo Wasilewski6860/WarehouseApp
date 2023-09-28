@@ -75,6 +75,10 @@ class WarehouseStorageImpl(warehouseDatabase: WarehouseDatabase): WarehouseStora
 
     override suspend fun getProductWithProductOnWarehouseById(id: Int): ProductWithProductOnWarehouseDto = warehouseDao.getProductWithProductOnWarehouseById(id)
     override suspend fun getProductsWithProductOnWarehouse(): List<ProductWithProductOnWarehouseDto> = warehouseDao.getProductsWithProductOnWarehouse()
+    override suspend fun getProductsWithProductOnWarehouseByName(name: String): List<ProductWithProductOnWarehouseDto> = warehouseDao.getProductsWithProductOnWarehouseByName(name)
+    override suspend fun getProductsWithProductOnWarehouseSortedByName(): List<ProductWithProductOnWarehouseDto> = warehouseDao.getProductsWithProductOnWarehouseSortedByName()
+
+    override suspend fun getProductsWithProductOnWarehouseSortedByPrice(): List<ProductWithProductOnWarehouseDto> = warehouseDao.getProductsWithProductOnWarehouseSortedByPrice()
 
     override suspend fun insertProductOnWarehouse(productOnWarehouseDto: ProductOnWarehouseDto) = warehouseDao.insertProductOnWarehouse(productOnWarehouseDto)
     override suspend fun editProductOnWarehouse(productOnWarehouseDto: ProductOnWarehouseDto) = warehouseDao.editProductOnWarehouse(productOnWarehouseDto)

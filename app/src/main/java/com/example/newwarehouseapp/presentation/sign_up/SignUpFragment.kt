@@ -49,6 +49,9 @@ class SignUpFragment : Fragment() {
             showDialog()
         }
 
+        emailFocusListener()
+        passwordFocusListener()
+        phoneFocusListener()
 
     }
 
@@ -77,7 +80,7 @@ class SignUpFragment : Fragment() {
                 viewModel.addNewReceiver(
                     name = binding.signUpName.text.toString(),
                     password = binding.signUpPassword.text.toString(),
-                    phone = binding.signUpPhone.text.toString(),
+                    phone = viewModel.standartizingPhone( binding.signUpPhone.text.toString()),
                     email = binding.signUpEmail.text.toString()
                 )
                 showSnackbar("Successfully created ")
@@ -89,7 +92,7 @@ class SignUpFragment : Fragment() {
                 viewModel.addNewSupplier(
                     name = binding.signUpName.text.toString(),
                     password = binding.signUpPassword.text.toString(),
-                    phone = binding.signUpPhone.text.toString(),
+                    phone = viewModel.standartizingPhone( binding.signUpPhone.text.toString()),
                     email = binding.signUpEmail.text.toString()
                 )
                 showSnackbar("Successfully created ")
@@ -106,6 +109,33 @@ class SignUpFragment : Fragment() {
             name = binding.signUpName.text.toString(),
         )
     }
+
+    private fun emailFocusListener() {
+        binding.signUpEmail.setOnFocusChangeListener { _, focused ->
+            if(!focused) {
+                if (!viewModel.isEmailValid(email = binding.signUpEmail.text.toString()))
+                    binding.layoutSignUpEmail.helperText = "Invalid email"
+            }
+        }
+    }
+    private fun passwordFocusListener()
+    {
+        binding.signUpPassword.setOnFocusChangeListener { _, focused ->
+            if(!focused){
+                binding.layoutSignUpPassword.helperText = viewModel.isPasswordInvalid(passwordText = binding.signUpPassword.text.toString())
+            }
+        }
+    }
+    private fun phoneFocusListener() {
+        binding.signUpPhone.setOnFocusChangeListener { _, focused ->
+            if(!focused) {
+                binding.layoutSignUpPhone.helperText = viewModel.validPhone(binding.signUpPhone.text.toString())
+            }
+        }
+    }
+
+
+
     private fun isInputEmailValid(): Boolean {
         return viewModel.isEmailValid(
             email = binding.signUpEmail.text.toString()

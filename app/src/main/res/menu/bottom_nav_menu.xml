@@ -10,7 +10,7 @@
         android:icon="@drawable/ic_output_note" />
 
     <item android:id="@+id/warehouseFragment"
-        android:title="Settings"
+        android:title="Warehouse"
         android:icon="@drawable/ic_warehouse" />
 
 </menu>
