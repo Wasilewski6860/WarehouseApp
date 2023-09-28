@@ -8,6 +8,7 @@
 - MVVM architecture pattern
 - Clean Architecture
 - Storing data using Room database
+- Koin for DI
 - Database with one-to-one, one-to-many, and many-to-many relationships
 
 # Gallery
